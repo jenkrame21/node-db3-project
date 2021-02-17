@@ -13,8 +13,7 @@ JOIN Category AS c
 
 SELECT 
     o.Id OrderID,
-    CompanyName,
-    OrderDate
+    CompanyName
 FROM `Order` AS o
 JOIN `Shipper` AS s
     ON o.shipvia = s.id

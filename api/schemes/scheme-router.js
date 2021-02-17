@@ -18,15 +18,18 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
-  Schemes.findById(id)
-    .then(scheme => {
+  db("schemes")
+    .where({ id })
+    .then((schemes) => {
+      const scheme = schemes[0];
+
       if (scheme) {
         res.json(scheme);
       } else {
         res.status(404).json({ message: 'Could not find scheme with given id.' })
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json({ message: 'Failed to get schemes' });
     });
 });
