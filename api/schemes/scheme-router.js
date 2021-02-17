@@ -1,11 +1,12 @@
 const express = require('express');
 
 const Schemes = require('./scheme-model.js');
+const db = require('../../data/db-config.js');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  Schemes.find()
+  db("schemes")
     .then(schemes => {
       res.json(schemes);
     })

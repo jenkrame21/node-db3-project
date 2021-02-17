@@ -2,12 +2,12 @@ const db = require("../../data/db-config.js");
 
 module.exports = {
 
-    find(id) {
-        return db("schemes as sch")
+    find() {
+        return db("schemes")
     },
 
     findById(id) {
-        
+
     },
 
     findSteps(id) {
@@ -15,6 +15,10 @@ module.exports = {
     },
 
     add(scheme) {
+
+    },
+
+    addStep(step) {
 
     },
 
