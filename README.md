@@ -6,11 +6,11 @@
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git `push origin <firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [x] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git `push origin <firstName-lastName>`.
 
 ### Task 2: Minimum Viable Product
 
@@ -84,7 +84,7 @@ The following endpoints are available to test the functionality of the model met
 - `GET /api/schemes/:id` - gets a single scheme
 - `GET /api/schemes/:id/steps` - gets all steps for a given scheme, ordered correctly
 - `POST /api/schemes` - adds a new scheme
-- `PUT /api/schemes:id` - updates a given scheme
+- `PUT /api/schemes/:id` - updates a given scheme
 - `DELETE /api/schemes/:id` - removes a given scheme and all associated steps
 
 ### Task 3: Stretch Problems
@@ -100,4 +100,4 @@ The following endpoints are available to test the functionality of the model met
 
 Follow these steps for completing your project.
 
-- [ ] Submit to Canvas a pull request to merge `<firstName-lastName>` Branch into master (student's Repo). **Please don't merge your own pull request**
+- [x] Submit to Canvas a pull request to merge `<firstName-lastName>` Branch into master (student's Repo). **Please don't merge your own pull request**
