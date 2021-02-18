@@ -45,9 +45,6 @@ module.exports = {
         return db("schemes")
             .where('id', id)
             .del()
-            .then(() => {
-                return db('schemes');
-            });
     }
 
 };
