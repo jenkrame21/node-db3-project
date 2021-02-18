@@ -7,11 +7,13 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   db("schemes")
-    .then(schemes => {
+    .then((schemes) => {
       res.json(schemes);
     })
-    .catch(err => {
-      res.status(500).json({ message: 'Failed to get schemes' });
+    .catch((err) => {
+      res.status(500).json({ 
+        message: 'Failed to get schemes' 
+      });
     });
 });
 
@@ -26,11 +28,15 @@ router.get('/:id', (req, res) => {
       if (scheme) {
         res.json(scheme);
       } else {
-        res.status(404).json({ message: 'Could not find scheme with given id.' })
+        res.status(404).json({ 
+          message: 'Could not find scheme with given id.' 
+        });
       }
     })
     .catch((err) => {
-      res.status(500).json({ message: 'Failed to get schemes' });
+      res.status(500).json({ 
+        message: 'Failed to get schemes' 
+      });
     });
 });
 
@@ -39,30 +45,41 @@ router.get('/:id/steps', (req, res) => {
     const { id } = req.params;
   
     Schemes.findSteps(id)
-      .then(steps => {
+      .then((steps) => {
         if (steps.length) {
           res.json(steps);
         } else {
-          res.status(404).json({ message: 'Could not find steps for given scheme' })
+          res.status(404).json({ 
+            message: 'Could not find steps for given scheme' 
+          });
         }
       });
   } catch(err) {
-    res.status(500).json({ message: 'Failed to get steps' });
+    res.status(500).json({ 
+      message: 'Failed to get steps' 
+    });
   }
 });
 
+// Creates New Scheme
 router.post('/', (req, res) => {
   const schemeData = req.body;
 
-  Schemes.add(schemeData)
-    .then(scheme => {
-      res.status(201).json(scheme);
+  db("schemes")
+    .insert(schemeData, "id")
+    .then((schemeId) => {
+      res.status(201).json({ 
+        created: schemeId[0] 
+      });
     })
-    .catch(err => {
-      res.status(500).json({ message: 'Failed to create new scheme' });
+    .catch((err) => {
+      res.status(500).json({ 
+        message: 'Failed to create new scheme' 
+      });
     });
 });
 
+// Creates a Step for Scheme by ID
 router.post('/:id/steps', (req, res) => {
   const stepData = req.body;
   const { id } = req.params;
